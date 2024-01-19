@@ -1,5 +1,7 @@
 This is a Gemini Pro chat built with Nextjs
 
+Live demo: [Gemini Pro Chat](https://www.gemini-pro-chat.com)
+
 ## Getting Started
 
 First, run the development server:
