@@ -7,6 +7,7 @@ import Markdown from "react-markdown";
 
 let sessionMessages = [];
 function MyChat() {
+  const [loading, setLoading] = useState(false);
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
   const [reversedText, setReversedText] = useState("");
@@ -38,6 +39,8 @@ function MyChat() {
     e.preventDefault();
 
     if (input.length == 0) return;
+    
+    setLoading(true);
 
     setMessages((preMessages) => [
       ...preMessages,
@@ -56,6 +59,8 @@ function MyChat() {
     const data = await response.json();
     console.log(data);
     console.log(`status = ${response.status}`);
+
+    setLoading(false);
     if (response.status !== 200) {
       console.log(data);
       setMessages((messages) => [
@@ -100,7 +105,15 @@ function MyChat() {
             <div className="flex p-2 items-center	">
               {m.role === "user" && (
                 <div className="flex">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="#3B82F6"><path d="M620-520q25 0 42.5-17.5T680-580q0-25-17.5-42.5T620-640q-25 0-42.5 17.5T560-580q0 25 17.5 42.5T620-520Zm-280 0q25 0 42.5-17.5T400-580q0-25-17.5-42.5T340-640q-25 0-42.5 17.5T280-580q0 25 17.5 42.5T340-520Zm140 260q68 0 123.5-38.5T684-400H276q25 63 80.5 101.5T480-260Zm0 180q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Z"/></svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24"
+                    viewBox="0 -960 960 960"
+                    width="24"
+                    fill="#3B82F6"
+                  >
+                    <path d="M620-520q25 0 42.5-17.5T680-580q0-25-17.5-42.5T620-640q-25 0-42.5 17.5T560-580q0 25 17.5 42.5T620-520Zm-280 0q25 0 42.5-17.5T400-580q0-25-17.5-42.5T340-640q-25 0-42.5 17.5T280-580q0 25 17.5 42.5T340-520Zm140 260q68 0 123.5-38.5T684-400H276q25 63 80.5 101.5T480-260Zm0 180q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Z" />
+                  </svg>
                   <span className="ml-1">You</span>
                 </div>
               )}
@@ -114,7 +127,9 @@ function MyChat() {
             <div
               className={`flex flex-col p-2 rounded-md ${
                 m.role == "user" && "bg-blue-700 text-white "
-              } ${m.role == "ai" && "bg-white"} ${m.role == "error" && "bg-rose-100"}`}
+              } ${m.role == "ai" && "bg-white"} ${
+                m.role == "error" && "bg-rose-100"
+              }`}
             >
               <Markdown>{m.content}</Markdown>
             </div>
@@ -134,11 +149,11 @@ function MyChat() {
               onChange={handleTextChange}
             />
           </form>
-          <button
+          <button disabled={loading}
             onClick={handleSubmit}
-            className="ml-2 rounded-md py-1 px-4 text-white bg-blue-700 hover:bg-blue-600"
+            className={`ml-2 rounded-md py-1 px-4 text-white ${loading ? "bg-gray-500" : "bg-blue-700 hover:bg-blue-600"}`}
           >
-            submit
+            { loading ? "Gemini thinking": "Clike me"}
           </button>
         </div>
       </div>
