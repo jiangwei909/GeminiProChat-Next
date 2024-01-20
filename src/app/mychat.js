@@ -39,7 +39,7 @@ function MyChat() {
     e.preventDefault();
 
     if (input.length == 0) return;
-    
+
     setLoading(true);
 
     setMessages((preMessages) => [
@@ -138,7 +138,7 @@ function MyChat() {
       </div>
 
       <div className="flex items-baseline mt-2">
-        <div className="flex items-baseline	rounded-xl p-2  bg-white border border-sky-600	flex-grow">
+        <div className="flex items-baseline	rounded-3xl p-2  bg-white border border-sky-600	flex-grow">
           <form className="flex flex-grow">
             <textarea
               className={`w-full flex-1 ${
@@ -151,7 +151,7 @@ function MyChat() {
           </form>
           <button disabled={loading}
             onClick={handleSubmit}
-            className={`ml-2 rounded-md py-1 px-4 text-white ${loading ? "bg-gray-500" : "bg-blue-700 hover:bg-blue-600"}`}
+            className={`ml-2 rounded-3xl py-1 px-4 text-white ${loading ? "bg-gray-500" : "bg-blue-700 hover:bg-blue-600"}`}
           >
             { loading ? "Gemini thinking": "Clike me"}
           </button>
