@@ -1,6 +1,6 @@
 function About() {
   return (
-    <div className="flex flex-col mt-8 leading-6">
+    <div className="flex flex-col mt-8 leading-6 p-2">
       <div className="mb-2">
         <h1 className="font-bold text-lg">What is Gemini Pro</h1>
         <p>

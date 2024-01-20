@@ -111,7 +111,7 @@ function MyChat() {
       <div ref={divRef} className="overflow-auto h-96">
         {messages.map((m, idx) => (
           <div key={idx} className={`flex flex-col p-2 rounded`}>
-            <div className="flex p-2 items-center	">
+            <div className="flex p-1 items-center	">
               {m.role === "user" && (
                 <div className="flex">
                   <svg
@@ -139,6 +139,7 @@ function MyChat() {
               } ${m.role == "ai" ? "bg-white" : ""} ${
                 m.role == "error" ? "bg-rose-100" : ""
               }`}
+
             >
               <Markdown>{m.content}</Markdown>
             </div>
@@ -166,7 +167,7 @@ function MyChat() {
               loading ? "bg-gray-500" : "bg-blue-700 hover:bg-blue-600"
             }`}
           >
-            {loading ? "Gemini thinking" : "Clike me"}
+            {loading ? "Thinking" : "Clike me"}
           </button>
         </div>
       </div>
