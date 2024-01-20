@@ -134,10 +134,10 @@ function MyChat() {
               )}
             </div>
             <div
-              className={`flex flex-col p-2 rounded-md ${
-                m.role == "user" && "bg-blue-700 text-white "
-              } ${m.role == "ai" && "bg-white"} ${
-                m.role == "error" && "bg-rose-100"
+              className={`flex flex-col p-2 rounded-xl w-fit-content ${
+                m.role == "user" ? "bg-blue-700 text-white " : ""
+              } ${m.role == "ai" ? "bg-white" : ""} ${
+                m.role == "error" ? "bg-rose-100" : ""
               }`}
             >
               <Markdown>{m.content}</Markdown>
