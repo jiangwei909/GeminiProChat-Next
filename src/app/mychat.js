@@ -4,6 +4,8 @@ import { Input } from "postcss";
 import React, { useState, useRef, useEffect } from "react";
 import "tailwindcss/tailwind.css";
 import Markdown from "react-markdown";
+import { GrClearOption } from "react-icons/gr";
+import { FaUserSecret } from "react-icons/fa";
 
 let sessionMessages = [];
 function MyChat() {
@@ -63,7 +65,7 @@ function MyChat() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ input: input }),
+      body: JSON.stringify({ input: sessionMessages }),
     });
     const data = await response.json();
     console.log(data);
@@ -82,10 +84,10 @@ function MyChat() {
     // setReversedText(data.reversedText);
     setMessages((messages) => [
       ...messages,
-      { role: "ai", content: data.text },
+      { role: "model", content: data.text },
     ]);
 
-    sessionMessages.push({ role: "ai", content: data.text });
+    sessionMessages.push({ role: "model", content: data.text });
 
     setInput("");
   };
@@ -113,21 +115,13 @@ function MyChat() {
           <div key={idx} className={`flex flex-col p-2 rounded`}>
             <div className="flex p-1 items-center	">
               {m.role === "user" && (
-                <div className="flex">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="24"
-                    viewBox="0 -960 960 960"
-                    width="24"
-                    fill="#3B82F6"
-                  >
-                    <path d="M620-520q25 0 42.5-17.5T680-580q0-25-17.5-42.5T620-640q-25 0-42.5 17.5T560-580q0 25 17.5 42.5T620-520Zm-280 0q25 0 42.5-17.5T400-580q0-25-17.5-42.5T340-640q-25 0-42.5 17.5T280-580q0 25 17.5 42.5T340-520Zm140 260q68 0 123.5-38.5T684-400H276q25 63 80.5 101.5T480-260Zm0 180q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Z" />
-                  </svg>
+                <div className="flex items-center">
+                  <FaUserSecret />
                   <span className="ml-1">You</span>
                 </div>
               )}
-              {m.role === "ai" && (
-                <div className="flex">
+              {m.role === "model" && (
+                <div className="flex items-center">
                   <img src="/logo.png" className="w-6 h-6"></img>
                   <span className="ml-1">Gemini</span>
                 </div>
@@ -136,10 +130,9 @@ function MyChat() {
             <div
               className={`flex flex-col p-2 rounded-xl w-fit-content ${
                 m.role == "user" ? "bg-blue-700 text-white " : ""
-              } ${m.role == "ai" ? "bg-white" : ""} ${
+              } ${m.role == "model" ? "bg-white" : ""} ${
                 m.role == "error" ? "bg-rose-100" : ""
               }`}
-
             >
               <Markdown>{m.content}</Markdown>
             </div>
@@ -147,7 +140,13 @@ function MyChat() {
         ))}
       </div>
 
-      <div className="flex items-baseline mt-2" onKeyDown={handleKeyDown}>
+      <div className="flex items-center mt-2" onKeyDown={handleKeyDown}>
+        <div
+          className="rounded-full mx-1 hover:bg-gray-300 bg-rose-100 p-2 hover:cursor-pointer"
+          onClick={newSubject}
+        >
+          <GrClearOption />
+        </div>
         <div className="flex items-baseline	rounded-3xl p-2  bg-white border border-sky-600	flex-grow">
           <form className="flex flex-grow">
             <textarea

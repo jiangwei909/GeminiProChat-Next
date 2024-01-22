@@ -14,17 +14,17 @@ export async function POST(req) {
   const body = await req.json();
   const input = body.input;
 
-  // const parts = input.map((item) => {
-  //   return { text: item.content };
-  // });
+  const transformedData = input.map((item) => {
+    return {
+      role: item.role,
+      parts: [{ text: item.content }],
+    };
+  });
+
   const parts = { text: input };
 
   const reqData = JSON.stringify({
-    contents: [
-      {
-        parts: parts,
-      },
-    ],
+    contents: transformedData,
   });
 
   // request header
