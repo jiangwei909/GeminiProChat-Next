@@ -2,7 +2,7 @@ function About() {
   return (
     <div className="flex flex-col mt-8 leading-6 p-2">
       <div className="mb-2">
-        <h1 className="font-bold text-lg">What is Gemini Pro</h1>
+        <h1 className="font-bold text-lg">What is the Gemini Pro</h1>
         <p>
           The Gemini Pro is an artificial intelligence language model launched
           by Google. It possesses powerful multimodal and multilingual
@@ -23,10 +23,27 @@ function About() {
       </div>
 
       <div className="mb-2">
-        <h1 className="font-bold text-lg">How to use Gemini Pro</h1>
+        <h1 className="font-bold text-lg">What is the Gemini Pro Chat</h1>
         <p>
-          Currently, you can use Gemini Pro in three ways:
+          The Gemini Pro Chat is an advanced and intelligent chatbot powered by
+          a state-of-the-art language model called GPT (Generative Pre-trained
+          Transformer). Developed using Next.js, a popular framework for
+          building web applications, this chatbot introduces a new level of
+          conversational experience. 
         </p>
+        <p>
+          With its cutting-edge technology, Gemini
+          Pro Chat is designed to engage users in meaningful and natural
+          conversations. It leverages the power of GPT to understand user inputs
+          and generate contextual and relevant responses. Whether it's answering
+          questions, providing recommendations, or engaging in casual
+          conversations, the chatbot aims to deliver a human-like interaction.
+        </p>
+      </div>
+
+      <div className="mb-2">
+        <h1 className="font-bold text-lg">How to use Gemini Pro</h1>
+        <p>Currently, you can use Gemini Pro in three ways:</p>
 
         <div>
           <ul className="list-disc list-inside">
