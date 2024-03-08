@@ -2,7 +2,7 @@ function About() {
   return (
     <div className="flex flex-col mt-8 leading-6 p-2">
       <div className="mb-2">
-        <h1 className="font-bold text-lg">What is the Gemini</h1>
+        <h2 className="font-bold text-lg">What is the Gemini</h2>
         <p>
           Gemini is a family of multimodal language models, developed by Google
           DeepMind, a successor to LaMDA and part of the next generation of the
@@ -13,7 +13,7 @@ function About() {
       </div>
 
       <div className="mb-2">
-        <h1 className="font-bold text-lg">The Gemini meaning</h1>
+        <h2 className="font-bold text-lg">The Gemini meaning</h2>
         <p>
           Gemini is the name of a zodiac sign representing the constellation of
           Gemini. It is the third sign of the zodiac in the celestial sphere and
@@ -24,7 +24,7 @@ function About() {
       </div>
 
       <div className="mb-2">
-        <h1 className="font-bold text-lg">What is the Gemini Pro</h1>
+        <h2 className="font-bold text-lg">What is the Gemini Pro</h2>
         <p>
           Gemini is designed to run on almost any device. Google claims that its
           three versions—Gemini Ultra, Gemini Pro, and Gemini Nano—are capable
@@ -41,7 +41,7 @@ function About() {
       </div>
 
       <div className="mb-2">
-        <h1 className="font-bold text-lg">What is the Gemini Pro Chat</h1>
+        <h2 className="font-bold text-lg">What is the Gemini Pro Chat</h2>
         <p>
           The Gemini Pro Chat is an advanced and intelligent chatbot powered by
           a state-of-the-art language model called GPT (Generative Pre-trained
@@ -60,7 +60,7 @@ function About() {
       </div>
 
       <div className="mb-2">
-        <h1 className="font-bold text-lg">How to use Gemini Pro</h1>
+        <h2 className="font-bold text-lg">How to use Gemini Pro</h2>
         <p>Currently, you can use Gemini Pro in three ways:</p>
 
         <div>
@@ -93,9 +93,9 @@ function About() {
       </div>
 
       <div className="mb-2">
-        <h1 className="font-bold text-lg">
+        <h2 className="font-bold text-lg">
         What are the differences between the three versions of Gemini and GPT-4?
-        </h1>
+        </h2>
         <p>
           Gemini and GPT-4 are both large-scale artificial intelligence language
           models, developed by Google and OpenAI respectively, that can perform
